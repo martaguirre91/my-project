@@ -4,7 +4,7 @@ this.game;
 const gamesToPlay = [
     { name: 'Bilbao', img: 'vasco.png', bg: 'background.png', ch: 'character.png', ch2: 'barqueroc.png', obs: 'stone.png', obsName: 'piedras', pr: 'prize.png', prizeName: 'monedas', obs2: 'barca.png', pr2: 'prize.png' },
     { name: 'Milano', img: 'cocinero.png', bg: 'duomo8bit.png', ch: 'character_it.png', ch2: 'barquero_it.png', obs: 'stone.png', obsName: 'piedras', pr: 'pizza_prize.png', prizeName: 'pizzas', obs2: 'gondolero.png', pr2: 'prize.png' },
-    { name: 'Viena', img: 'mujer.png', bg: 'duomo8bit.png', ch: 'character.png', ch2: 'barqueroc.png', obs: 'stone.png', obsName: 'piedras', pr: 'prize.png', prizeName: 'monedas', obs2: 'gondolero.png', pr2: 'prize.png' },
+    { name: 'Viena', img: 'mujer.png', bg: 'viena.png', ch: 'character.png', ch2: 'barqueroc.png', obs: 'stone.png', obsName: 'piedras', pr: 'prize.png', prizeName: 'monedas', obs2: 'gondolero.png', pr2: 'prize.png' },
     { name: 'NOLA', img: 'negros.png', bg: 'nola.png', ch: 'character_nola.png', ch2: 'barco_nola.png', obs: 'stone.png', obsName: 'piedras', pr: 'prize.png', prizeName: 'monedas', obs2: 'stone.png', pr2: 'prize.png' }
 
 ];
