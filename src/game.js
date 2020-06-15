@@ -126,11 +126,11 @@ class Game {
   }
 
   _youWin() {
-    if (this.prizeCounter >= 10) {
+    if (this.prizeCounter >= 50) {
       this.character.finished = true;
       this._drawDoor()
     }
-    if (this.collisionCounter >= 10)
+    if (this.collisionCounter >= 50)
       this._gameOver()
   }
 

@@ -22,7 +22,7 @@ class SecondLevelEx extends Game {
 
   _draw() {
     this.bg.drawToMove()
-    if (this.city.name =='NOLA')
+    if (this.city.name == 'NOLA')
       this.character.drawNoMovement()
     else this.character.draw()
     this.obstacles.forEach((el) => el.draw())
@@ -31,21 +31,39 @@ class SecondLevelEx extends Game {
   _clearS() {
     this.ctx.clearRect(0, 0, 500, 800)
   }
-  
+
   _addObstacle() {
     this.tick++
     if (this.tick > 50) {
       const newObstacle = new ObstacleSec(ctx, this.city)
       this.obstacles.push(newObstacle)
-      
       this.tick = 0
     }
   }
+  _updateStatusBar() {
+    this.progress.style.width = this.collisionCounter  + '%';
+    this.progresslife.style.width = this.prizeCounter  + '%';
+  }
 
   _youWin() {
-    if (this.prizeCounter >= 10)
+    if (this.prizeCounter >= 50) {
+      clearInterval(this.intervalId)
+      this.door = new Door(ctx, './images/YouWin.png')
+
+      this.intervalId = setInterval(() => {
+        this._clear()
+        this._drawFinished()
+
+      }, 1000 / 60)
+    
+    }
+
+    if (this.collisionCounter >= 100)
       this._gameOver()
-    if (this.collisionCounter >= 10)
-      this._gameOver()
+  }
+  _drawFinished(){
+    this.bg.draw()
+    this.door.draw()
+    this.character.draw()
   }
 }
