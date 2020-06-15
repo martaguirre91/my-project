@@ -2,8 +2,8 @@ class Background {
     constructor(ctx, city) {
       this.city = city
       this.ctx = ctx;
-      this.w = this.ctx.canvas.width
-      this.h = this.ctx.canvas.height
+      this.w = ctx.canvas.width
+      this.h = ctx.canvas.height
       this.x = 0
       this.y = 0
   
@@ -36,8 +36,6 @@ class Background {
 
     move() {
       this.y += this.vy
-      this.y - this.h >= 0 ? this.y = 0: this.y = this.y
-      
+      this.y - this.h >= 0 ? this.y = 0: this.y = this.y 
     }
-    
   }

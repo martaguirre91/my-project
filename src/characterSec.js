@@ -1,21 +1,21 @@
-class Character {
+class CharacterSec {
   constructor(ctx, char) {
     this._ctx = ctx
     this.char = char
-
+    console.log(this.char)
     this.w = 50
     this.h = 100
     this.h0 = this.h
 
-    this.x = ctx.canvas.width * 0.05
-    this.y = ctx.canvas.height * 0.97 - this.h
+    this.x = this._ctx.canvas.width * 0.05
+    this.y = this._ctx.canvas.height * 0.97 - this.h
     this.y0 = this.y
 
     this.vx = 0
     this.vy = 0
 
     this.ax = 0
-    this.ay = 0.9
+    this.ay = 0.01
 
     this._img = new Image()
     this._img.frames = 3
@@ -23,11 +23,7 @@ class Character {
     this._img.src = './images/' + this.char
 
     this._ticks = 0
-    this.finished = false;
-
-    this._jumpAudio = new Audio('http://www.sonidosmp3gratis.com/sounds/mario-bros-jump')
-
-    new Movements(this, false).init()
+    new Movements(this, true).init()
   }
 
   draw() {
@@ -46,6 +42,20 @@ class Character {
     this._animate()
   }
 
+  drawNoMovement() {
+    this._ctx.drawImage(
+      this._img,
+      0,
+      0,
+      this._img.width,
+      this._img.height,
+      this.x,
+      this.y,
+      100,
+      100
+    );
+  }
+
   move() {
     this.vx += this.ax
     this.vy += this.ay
@@ -57,12 +67,11 @@ class Character {
       this.vy = 0
       this.y = this.y0
     }
-    if (this.x <= 0) {
-      this.x = 0
+    if (this.x <= 140) {
+      this.x = 140
     }
-    if (!this.finished) { // esto es para que el muñeco pueda desaparecer cuando se acaba el nivel
-      if (this.x > this._ctx.canvas.width - this.w)
-        this.x = this._ctx.canvas.width - this.w
+    if (this.x > this._ctx.canvas.width - this.w - 140) {
+      this.x = this._ctx.canvas.width - this.w - 140
     }
   }
 
@@ -74,13 +83,6 @@ class Character {
     return !(this.h === this.h0)
   }
 
-  jump() {
-    if (this.isFloor()) {
-      this._jumpAudio.play()
-      this.vy -= 15
-      this.y -= 10
-    }
-  }
 
   bend() {
     if (!this.isBend()) {

@@ -2,14 +2,14 @@ class SecondLevelEx extends Game {
   constructor(ctx, city) {
     super(ctx, city)
     this.bg = new Background(ctx, 'river.png')
-    this.character = new Character(ctx, 'barqueroc.png')
+    this.character = new CharacterSec(ctx, city.ch2)
     this.obstacles = []
+
   }
 
   start() {
-    console.log(this.ctx)
     this.intervalId = setInterval(() => {
-      this._clear()
+      this._clearS()
       this._draw()
       super._move()
       this._addObstacle()
@@ -22,11 +22,13 @@ class SecondLevelEx extends Game {
 
   _draw() {
     this.bg.drawToMove()
-    this.character.draw()
+    if (this.city.name =='NOLA')
+      this.character.drawNoMovement()
+    else this.character.draw()
     this.obstacles.forEach((el) => el.draw())
   }
 
-  _clear() {
+  _clearS() {
     this.ctx.clearRect(0, 0, 500, 800)
   }
   

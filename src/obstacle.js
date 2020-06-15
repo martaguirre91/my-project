@@ -21,7 +21,6 @@ class Obstacle {
         this._img = new Image()
 
         this._imgRandomName = [ './images/'+this.city.obs, './images/'+this.city.pr]
-        // this._imgRandomName = ['./images/' + this.city.obs2, './images/' + this.city.pr]
 
         this.obstacleType = this._imgRandomName[Math.floor(Math.random() * this._imgRandomName.length)]
         this._img.src = this.obstacleType
@@ -39,7 +38,6 @@ class Obstacle {
 
     move() {
         this.y += this.vy
-
     }
 
     drawSecond() {

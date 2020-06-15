@@ -1,19 +1,15 @@
 class Door {
-    constructor(ctx) {
+    constructor(ctx, imName) {
       this.ctx = ctx;
+      this.imName = imName
       this.w = this.ctx.canvas.width
       this.h = this.ctx.canvas.height
-      this.x = 0
-      this.y = 0
-  
-      this.vx = -2
-  
+      
       this.img = new Image()
-      this.img.src = "./images/door.png"
+      this.img.src = this.imName
     }
   
     draw() {
-      this.ctx.drawImage(this.img, 650, 350, 150, 150)
+      this.ctx.drawImage(this.img, this.w/2 - 75, this.h/2 -100, 200, 200)
     }
-    
   }
